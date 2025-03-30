@@ -104,6 +104,23 @@ namespace FTPClient
             return null;
         }
 
+        public static FileMoveResponse MoveFile(Socket socket, FileMoveRequest request)
+        {
+            TcpProtocol.Send<GlobalRequest>(socket, new GlobalRequest()
+            {
+                Route = "/file-move",
+                AuthentToken = Client.AuthenToken,
+                RequestObject = request
+            }
+            );
+            GlobalResponse response;
+            if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
+            {
+                return response.RequestObject as FileMoveResponse;
+            }
+            return null;
+        }
+
         public static FolderAddResponse AddFolder(Socket socket, FolderAddRequest request)
         {
             TcpProtocol.Send<GlobalRequest>(socket, new GlobalRequest() { 
@@ -142,6 +159,23 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response)){
                 return response.RequestObject as FolderUpdateResponse;
+            }
+            return null;
+        }
+
+        public static FolderMoveResponse MoveFolder(Socket socket, FolderMoveRequest request)
+        {
+            TcpProtocol.Send<GlobalRequest>(socket, new GlobalRequest()
+            {
+                Route = "/folder-move",
+                AuthentToken = Client.AuthenToken,
+                RequestObject = request
+            }
+            );
+            GlobalResponse response;
+            if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
+            {
+                return response.RequestObject as FolderMoveResponse;
             }
             return null;
         }

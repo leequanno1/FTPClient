@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dto.responses
 {
-    public class FolderUpdateResponse
+    public class FileMoveResponse
     {
         private int _status;
         private string _message;

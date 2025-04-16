@@ -1,6 +1,9 @@
-﻿using System;
+﻿using FTPClient.ui.form;
+using lib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +19,21 @@ namespace FTPClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            try
+            {
+                Client.Connect(ServerEndpoint.MessageServer);
+
+                // Will connect if login successfully
+                //Client.Connect(ServerEndpoint.FileServer);
+            }
+            catch (SocketException ex)
+            {
+                MessageBox.Show("Can not connect to the server. Please try again!", "Failed connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Application.Run(new MainForm());
         }
     }
 }

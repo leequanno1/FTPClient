@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FTPClient
+namespace FTPClient.ui.user_controls
 {
-    public partial class Form1 : Form
+    public partial class DashboardControl : UserControl
     {
-        public Form1()
+        public DashboardControl()
         {
             InitializeComponent();
         }

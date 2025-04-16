@@ -32,3 +32,37 @@ D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\
 D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\obj\Debug\FTPClient.pdb
 D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\obj\Debug\FTPClient.ui.user_controls.SignUpControl.resources
 D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\obj\Debug\FTPClient.ui.user_controls.DashboardControl.resources
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\FTPClient.exe.config
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\FTPClient.exe
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\FTPClient.pdb
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Buffers.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.IO.Pipelines.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Memory.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Numerics.Vectors.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Text.Encodings.Web.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Text.Json.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.ValueTuple.dll
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Buffers.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.IO.Pipelines.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Memory.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Numerics.Vectors.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Text.Encodings.Web.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Text.Json.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\bin\Debug\System.ValueTuple.xml
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.csproj.AssemblyReference.cache
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.Properties.Resources.resources
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.ui.form.MainForm.resources
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.ui.user_controls.DashboardControl.resources
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.ui.user_controls.LoginControl.resources
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.ui.user_controls.SignUpControl.resources
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.csproj.GenerateResource.cache
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.csproj.CoreCompileInputs.cache
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.csproj.CopyComplete
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.exe
+D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.pdb

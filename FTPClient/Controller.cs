@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,7 +31,7 @@ namespace FTPClient
             GlobalResponse glResponse;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out glResponse))
             {
-                FileAddResponse response = glResponse.RequestObject as FileAddResponse;
+                FileAddResponse response = ConverTo<FileAddResponse>(glResponse.RequestObject);
                 if (response.Status == ResponseStatus.READY)
                 {
                     // bắt đầu gửi file
@@ -64,7 +65,7 @@ namespace FTPClient
             GlobalResponse glResponse;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out glResponse))
             {
-                FileDowloadResponse response = glResponse.RequestObject as FileDowloadResponse;
+                FileDowloadResponse response = ConverTo<FileDowloadResponse>(glResponse.RequestObject);
                 if (response.Status == ResponseStatus.READY)
                 {
                     // bắt đầu nhận file file
@@ -95,7 +96,7 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
             {
-                return response.RequestObject as FileDeleteResponse;
+                return ConverTo<FileDeleteResponse>(response.RequestObject);
             }
             return null;
         }
@@ -112,7 +113,7 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
             {
-                return response.RequestObject as FileUpdateResponse;
+                return ConverTo<FileUpdateResponse>(response.RequestObject);
             }
             return null;
         }
@@ -129,7 +130,7 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
             {
-                return response.RequestObject as FileMoveResponse;
+                return ConverTo<FileMoveResponse>(response.RequestObject);
             }
             return null;
         }
@@ -146,7 +147,7 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
             {
-                return response.RequestObject as FolderAddResponse;
+                return ConverTo<FolderAddResponse>(response.RequestObject);
             }
             return null;
         }
@@ -163,7 +164,7 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
             {
-                return response.RequestObject as FolderDeleteResponse;
+                return ConverTo<FolderDeleteResponse>(response.RequestObject);
             }
             return null;
         }
@@ -180,7 +181,7 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
             {
-                return response.RequestObject as FolderUpdateResponse;
+                return ConverTo<FolderUpdateResponse>(response.RequestObject);
             }
             return null;
         }
@@ -197,7 +198,7 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
             {
-                return response.RequestObject as FolderMoveResponse;
+                return ConverTo<FolderMoveResponse>(response.RequestObject);
             }
             return null;
         }
@@ -214,7 +215,7 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
             {
-                return response.RequestObject as ListResponse;
+                return ConverTo<ListResponse>(response.RequestObject);
             }
             return null;
         }
@@ -229,9 +230,8 @@ namespace FTPClient
             }
             );
             GlobalResponse response;
-            if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
-            {
-                return response.RequestObject as LoginResponse;
+            if (TcpProtocol.Receive<GlobalResponse>(socket, out response)) {
+                return ConverTo<LoginResponse>(response.RequestObject);
             }
             return null;
         }
@@ -249,9 +249,16 @@ namespace FTPClient
             GlobalResponse response;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
             {
-                return response.RequestObject as SignupResponse;
+                return ConverTo<SignupResponse>(response.RequestObject);
             }
             return null;
+        }
+
+        private static T ConverTo<T>(object value)
+        {
+            string json = JsonSerializer.Serialize(value);
+            T request = JsonSerializer.Deserialize<T>(json);
+            return request;
         }
     }
 }

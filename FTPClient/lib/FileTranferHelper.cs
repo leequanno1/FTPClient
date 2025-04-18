@@ -1,93 +1,97 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lib
 {
-    public class FileTranferHelper
+    public class FileTransferHelper
     {
-        private const int BufferSize = 4096; // Dung lượng buffer 4KB
+        private const int BufferSize = 4096; // 4KB buffer
 
         /// <summary>
-        /// Send file to socket
+        /// Gửi file qua socket. Trước tiên gửi 8 byte độ dài file, sau đó là nội dung file.
         /// </summary>
-        /// <param name="socket">Connected socket</param>
-        /// <param name="filePath">Sended file path</param>
-        /// <param name="statusHandler">Function get current byte readed and return current byte readed</param>
-        public static void SendFileTo(Socket socket, string filePath, Func<int, int> statusHandler = null)
+        public static void SendFileTo(Socket socket, string filePath, Func<long, long> statusHandler = null)
         {
             if (!File.Exists(filePath))
             {
-                Console.WriteLine("File không tồn tại!");
+                Console.WriteLine("File không tồn tại.");
                 return;
             }
+
             try
             {
-                // Gửi dữ liệu file
+                long fileSize = new FileInfo(filePath).Length;
+                byte[] fileSizeBytes = BitConverter.GetBytes(fileSize);
+                socket.Send(fileSizeBytes); // Gửi kích thước file trước
+
+                Console.WriteLine($"Đang gửi file: {filePath} ({fileSize} bytes)");
+
                 byte[] buffer = new byte[BufferSize];
+                long totalSent = 0;
+
                 using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
                 {
                     int bytesRead;
-                    int totalRead = 0;
                     while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) > 0)
                     {
-                        socket.Send(buffer, bytesRead, SocketFlags.None);
-                        totalRead += bytesRead;
-                        if (statusHandler != null) statusHandler(totalRead);
+                        socket.Send(buffer, 0, bytesRead, SocketFlags.None);
+                        totalSent += bytesRead;
+                        statusHandler?.Invoke(totalSent);
                     }
                 }
-                Console.WriteLine($"File '{filePath}' sended.");
+
+                Console.WriteLine($"Đã gửi xong file: {filePath}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Send error: {ex.Message}");
+                Console.WriteLine($"Lỗi khi gửi file: {ex.Message}");
             }
         }
 
         /// <summary>
-        /// Recieve from socket
+        /// Nhận file từ socket. Đọc trước 8 byte độ dài file, sau đó nhận đúng số byte tương ứng.
         /// </summary>
-        /// <param name="socket">Connected socket</param>
-        /// <param name="savePath">Saved file path</param>
-        /// <param name="fileName">Saved file name</param>
-        /// <param name="statusHandler"> function get current byte readed and return current byte readed</param>
-        public static void ReceiveFileFrom(Socket socket, string savePath, string fileName, Func<int, int> statusHandler = null)
+        public static void ReceiveFileFrom(Socket socket, string savePath, string fileName, Func<long, long> statusHandler = null)
         {
             try
             {
-                // Nhận tên file
-                byte[] buffer = new byte[BufferSize];
-                int bytesRead = socket.Receive(buffer);
-                string receivedText = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+                // Nhận kích thước file (8 byte đầu tiên)
+                byte[] sizeBuffer = new byte[8];
+                int received = 0;
+                while (received < 8)
+                {
+                    int read = socket.Receive(sizeBuffer, received, 8 - received, SocketFlags.None);
+                    if (read <= 0) throw new Exception("Kết nối bị đóng khi đang nhận kích thước file.");
+                    received += read;
+                }
+
+                long fileSize = BitConverter.ToInt64(sizeBuffer, 0);
+                Console.WriteLine($"Đang nhận file '{fileName}' ({fileSize} bytes)");
+
                 string filePath = Path.Combine(savePath, fileName);
+                byte[] buffer = new byte[BufferSize];
+                long totalRead = 0;
 
-                Console.WriteLine($"Recieving: {fileName}");
-                int totalRead = 0;
-
-                // Nhận dữ liệu file
                 using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
                 {
-                    while ((bytesRead = socket.Receive(buffer)) > 0)
+                    while (totalRead < fileSize)
                     {
+                        int bytesToRead = (int)Math.Min(BufferSize, fileSize - totalRead);
+                        int bytesRead = socket.Receive(buffer, 0, bytesToRead, SocketFlags.None);
+                        if (bytesRead == 0) break;
+
                         fs.Write(buffer, 0, bytesRead);
                         totalRead += bytesRead;
-
-                        if (statusHandler != null) statusHandler(totalRead);
-
-                        // Kiểm tra nếu nhận hết dữ liệu
-                        if (bytesRead < BufferSize)
-                            break;
+                        statusHandler?.Invoke(totalRead);
                     }
                 }
-                Console.WriteLine($"File saved at: {filePath}");
+
+                Console.WriteLine($"Đã lưu file tại: {filePath}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Recieve error: {ex.Message}");
+                Console.WriteLine($"Lỗi khi nhận file: {ex.Message}");
             }
         }
     }

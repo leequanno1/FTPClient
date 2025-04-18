@@ -15,7 +15,7 @@ namespace FTPClient
 {
     public static class Controller
     {
-        public static bool AddFile(Socket socket, FileAddRequest request, string realiticFilePath, Func<int, int> statusHandler = null)
+        public static bool AddFile(Socket socket, FileAddRequest request, string realiticFilePath, Func<long, long> statusHandler = null)
         {
             // kết nối file server
             Client.ConnectFileSocket(ServerEndpoint.FileServer);
@@ -38,8 +38,13 @@ namespace FTPClient
                     // bắt đầu gửi file
                     try
                     {
-                        FileTranferHelper.SendFileTo(Client.FileSocket, realiticFilePath, statusHandler);
-                        while (Client.FileSocket.Connected) { Thread.Sleep(100); }
+                        Console.WriteLine(Client.FileSocket.RemoteEndPoint.ToString());
+                        Console.WriteLine(Client.FileSocket.LocalEndPoint.ToString());
+                        FileTransferHelper.SendFileTo(Client.FileSocket, realiticFilePath, statusHandler);
+                        while (Controller.IsSocketConnected(Client.FileSocket)) {
+                            Console.WriteLine("ádasd");
+                            Thread.Sleep(100); 
+                        }
                     }
                     catch (Exception)
                     {
@@ -50,7 +55,7 @@ namespace FTPClient
             return true;
         }
 
-        public static bool DownloadFile(Socket socket, FileDownloadRequest request, string realicticSaveFolderPath, Func<int, int> statusHandler = null)
+        public static bool DownloadFile(Socket socket, FileDownloadRequest request, string realicticSaveFolderPath, Func<long, long> statusHandler = null)
         {
             // gửi request
             TcpProtocol.Send<GlobalRequest>(socket, new GlobalRequest()
@@ -73,7 +78,7 @@ namespace FTPClient
                     try
                     {
                         string fileName = request.FilePath.Split('/').Last();
-                        FileTranferHelper.ReceiveFileFrom(socket, realicticSaveFolderPath, fileName, statusHandler);
+                        FileTransferHelper.ReceiveFileFrom(socket, realicticSaveFolderPath, fileName, statusHandler);
                         Client.FileSocket.Close();
                     }
                     catch (Exception)
@@ -258,8 +263,21 @@ namespace FTPClient
         private static T ConverTo<T>(object value)
         {
             string json = JsonSerializer.Serialize(value);
+            Console.WriteLine(json);
             T request = JsonSerializer.Deserialize<T>(json);
             return request;
+        }
+
+        private static bool IsSocketConnected(Socket socket)
+        {
+            try
+            {
+                return !(socket.Poll(1, SelectMode.SelectRead) && socket.Available == 0);
+            }
+            catch (SocketException)
+            {
+                return false;
+            }
         }
     }
 }

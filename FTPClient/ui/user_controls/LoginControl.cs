@@ -22,20 +22,20 @@ namespace FTPClient.ui.user_controls
         public LoginControl(MainForm parent)
         {
             InitializeComponent();
-            this.mainForm = parent;
+            mainForm = parent;
         }
 
         private void LoginControl_Load(object sender, EventArgs e)
         {
             SetTextHint();
 
-            this.BeginInvoke((MethodInvoker)delegate
+            BeginInvoke((MethodInvoker)delegate
             {
                 label1.Focus();
             });
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             // Get data from form
             string username = txtUsername.Text.Trim();
@@ -45,34 +45,63 @@ namespace FTPClient.ui.user_controls
             bool isValid = ValidateFormHelper.IsValidForm(lbErrorMessage, username, password);
             if (!isValid) return;
 
-            // Create login reuqet object
-            LoginRequest loginRequest = new LoginRequest();
-            loginRequest.Username = username;
-            loginRequest.Password = password;
+            // Disable the login button to prevent multiple clicks
+            btnLogin.Enabled = false;
+            btnLogin.ForeColor = Color.White;
+            lbErrorMessage.Text = "Logging in...";
+            await Task.Delay(50);
 
-            // Send reuquest to the server
-            LoginResponse loginResponse = Controller.Login(Client.FileSocket, loginRequest);
-            if (loginResponse.Token == String.Empty)
+            try
             {
-                DialogHelper.ShowError("Wrong username or password!");
-            }
+                // Run login process asynchronously
+                var loginResponse = await Task.Run(() => Login(username, password));
 
-            // Login successfully
-            SetTextHint();
-            DialogHelper.ShowSuccess($"Login successfully! \nToken: {loginResponse.Token}");
+                if (loginResponse == null || string.IsNullOrEmpty(loginResponse.Token))
+                {
+                    DialogHelper.ShowError("Wrong username or password!");
+                }
+                else
+                {         
+                    MySession.MyToken = loginResponse.Token;
+                    mainForm.LoadControl(new DashboardControl(mainForm));
+                }
+            }
+            catch (Exception ex)
+            {
+                DialogHelper.ShowError($"An error occurred: {ex.Message}");
+                lbErrorMessage.Text = string.Empty;
+            }
+            finally
+            {
+                btnLogin.Enabled = true;
+            }
+        }
+
+        // Method to handle the login process (this can be synchronous as it is called inside Task.Run)
+        private LoginResponse Login(string username, string password)
+        {
+            // Create login request object
+            LoginRequest loginRequest = new LoginRequest
+            {
+                Username = username,
+                Password = password
+            };
+
+            // Send request to the server
+            return Controller.Login(Client.ClientSocket, loginRequest);
         }
 
 
         private void linkLbSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.mainForm.LoadControl(new SignUpControl(mainForm));
+            mainForm.LoadControl(new SignUpControl(mainForm));
         }
 
         // Method to clear form
         public void SetTextHint()
         {
-            TextBoxHelper.SetHint(this.txtUsername, "Please enter username");
-            TextBoxHelper.SetHint(this.txtPassword, "Please enter password", true);
+            TextBoxHelper.SetHint(txtUsername, "Please enter username");
+            TextBoxHelper.SetHint(txtPassword, "Please enter password", true);
         }
     }
 }

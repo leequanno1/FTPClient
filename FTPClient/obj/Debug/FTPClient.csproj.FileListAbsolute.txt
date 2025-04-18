@@ -66,3 +66,4 @@ D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.csproj.CoreCompileIn
 D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.csproj.CopyComplete
 D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.exe
 D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.pdb
+D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\obj\Debug\FTPClient.ui.form.CreateNerFolderForm.resources

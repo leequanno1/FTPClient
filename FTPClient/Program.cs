@@ -1,11 +1,11 @@
-﻿using FTPClient.ui.form;
-using lib;
+﻿using lib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FTPClient.ui.form;
 
 namespace FTPClient
 {
@@ -29,7 +29,7 @@ namespace FTPClient
             }
             catch (SocketException ex)
             {
-                MessageBox.Show("Can not connect to the server. Please try again!", "Failed connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Can not connect to the server. Please try again!" + ex.ToString(), "Failed connection", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

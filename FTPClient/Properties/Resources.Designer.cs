@@ -63,6 +63,56 @@ namespace FTPClient.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_121_512 {
+            get {
+                object obj = ResourceManager.GetObject("arrow-121-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap arrow_20_512 {
+            get {
+                object obj = ResourceManager.GetObject("arrow-20-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap blank_file_512 {
+            get {
+                object obj = ResourceManager.GetObject("blank-file-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download_2_512 {
+            get {
+                object obj = ResourceManager.GetObject("download-2-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap file_3_512 {
+            get {
+                object obj = ResourceManager.GetObject("file-3-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap folder_3_512 {
             get {
                 object obj = ResourceManager.GetObject("folder-3-512", resourceCulture);
@@ -76,6 +126,36 @@ namespace FTPClient.Properties {
         internal static System.Drawing.Bitmap private_512 {
             get {
                 object obj = ResourceManager.GetObject("private-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_12_512 {
+            get {
+                object obj = ResourceManager.GetObject("search-12-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sinchronize_512 {
+            get {
+                object obj = ResourceManager.GetObject("sinchronize-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap upload_3_512 {
+            get {
+                object obj = ResourceManager.GetObject("upload-3-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

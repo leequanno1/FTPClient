@@ -7,64 +7,36 @@
       "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\user_controls\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\dto\\requests\\listrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\dto\\requests\\listrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\user_controls\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\user_controls\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\dto\\responses\\listresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\dto\\responses\\listresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\user_controls\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\user_controls\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\dto\\compositeconstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\dto\\compositeconstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\dto\\responses\\signupresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\dto\\responses\\signupresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\dto\\compositeconstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\dto\\compositeconstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\dto\\dbdto\\compositeitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\dto\\dbdto\\compositeitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\form\\createnerfolderform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\form\\createnerfolderform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\dto\\responses\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\dto\\responses\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\form\\createnerfolderform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\form\\createnerfolderform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\form\\createnerfolderform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\form\\createnerfolderform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\user_controls\\logincontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\user_controls\\logincontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\user_controls\\logincontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\user_controls\\logincontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\form\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\form\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\form\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\form\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\mysession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\mysession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\user_controls\\dashboardcontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\user_controls\\dashboardcontrol.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\dto\\responses\\foldermoveresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\dto\\responses\\foldermoveresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -83,14 +55,91 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ListRequest.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\requests\\ListRequest.cs",
-              "RelativeDocumentMoniker": "FTPClient\\dto\\requests\\ListRequest.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\requests\\ListRequest.cs",
-              "RelativeToolTip": "FTPClient\\dto\\requests\\ListRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAARAAAAAAAAAA==",
+              "Title": "DashboardControl.cs [Design]",
+              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "RelativeDocumentMoniker": "FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs [Design]",
+              "RelativeToolTip": "FTPClient\\ui\\user_controls\\DashboardControl.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T09:11:58.92Z",
+              "WhenOpened": "2025-04-18T10:49:32.53Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CompositeItemDTO.cs",
+              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\dbdto\\CompositeItemDTO.cs",
+              "RelativeDocumentMoniker": "FTPClient\\dto\\dbdto\\CompositeItemDTO.cs",
+              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\dbdto\\CompositeItemDTO.cs",
+              "RelativeToolTip": "FTPClient\\dto\\dbdto\\CompositeItemDTO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T10:47:40.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CompositeConstance.cs",
+              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\CompositeConstance.cs",
+              "RelativeDocumentMoniker": "FTPClient\\dto\\CompositeConstance.cs",
+              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\CompositeConstance.cs",
+              "RelativeToolTip": "FTPClient\\dto\\CompositeConstance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T10:47:29.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SignupResponse.cs",
+              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\responses\\SignupResponse.cs",
+              "RelativeDocumentMoniker": "FTPClient\\dto\\responses\\SignupResponse.cs",
+              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\responses\\SignupResponse.cs",
+              "RelativeToolTip": "FTPClient\\dto\\responses\\SignupResponse.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T10:44:26.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardControl.cs",
+              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "RelativeDocumentMoniker": "FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "RelativeToolTip": "FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAAApwOMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T16:23:04.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\responses\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "FTPClient\\dto\\responses\\LoginResponse.cs",
+              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\responses\\LoginResponse.cs",
+              "RelativeToolTip": "FTPClient\\dto\\responses\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T10:43:52.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Controller.cs",
+              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\Controller.cs",
+              "RelativeDocumentMoniker": "FTPClient\\Controller.cs",
+              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\Controller.cs",
+              "RelativeToolTip": "FTPClient\\Controller.cs",
+              "ViewState": "AgIAAMMAAAAAAAAAAAArwM0AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T10:19:23.576Z",
               "EditorCaption": ""
             },
             {
@@ -101,187 +150,22 @@
               "RelativeDocumentMoniker": "FTPClient\\dto\\responses\\ListResponse.cs",
               "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\responses\\ListResponse.cs",
               "RelativeToolTip": "FTPClient\\dto\\responses\\ListResponse.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwAkAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwA4AAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T09:11:12.87Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Controller.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\Controller.cs",
-              "RelativeDocumentMoniker": "FTPClient\\Controller.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\Controller.cs",
-              "RelativeToolTip": "FTPClient\\Controller.cs",
-              "ViewState": "AgIAAN4AAAAAAAAAAAAWwNoAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T08:44:57.936Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DashboardControl.cs [Design]",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\user_controls\\DashboardControl.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs [Design]",
-              "RelativeToolTip": "FTPClient\\ui\\user_controls\\DashboardControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-16T11:58:42.057Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DashboardControl.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\user_controls\\DashboardControl.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs",
-              "RelativeToolTip": "FTPClient\\ui\\user_controls\\DashboardControl.cs",
-              "ViewState": "AgIAAKEAAAAAAAAAAAAswK4AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T16:23:04.235Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CompositeConstance.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\CompositeConstance.cs",
-              "RelativeDocumentMoniker": "FTPClient\\dto\\CompositeConstance.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\CompositeConstance.cs",
-              "RelativeToolTip": "FTPClient\\dto\\CompositeConstance.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T08:51:14.6Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CreateNerFolderForm.cs [Design]",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\CreateNerFolderForm.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\form\\CreateNerFolderForm.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\CreateNerFolderForm.cs [Design]",
-              "RelativeToolTip": "FTPClient\\ui\\form\\CreateNerFolderForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T06:49:15.398Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CreateNerFolderForm.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\CreateNerFolderForm.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\form\\CreateNerFolderForm.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\CreateNerFolderForm.cs",
-              "RelativeToolTip": "FTPClient\\ui\\form\\CreateNerFolderForm.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAcwCIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T06:51:32.943Z",
+              "WhenOpened": "2025-04-18T10:37:46.268Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "CreateNerFolderForm.Designer.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\CreateNerFolderForm.Designer.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\form\\CreateNerFolderForm.Designer.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\CreateNerFolderForm.Designer.cs",
-              "RelativeToolTip": "FTPClient\\ui\\form\\CreateNerFolderForm.Designer.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAQwA0AAAA3AAAAAAAAAA==",
+              "Title": "FolderMoveResponse.cs",
+              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\responses\\FolderMoveResponse.cs",
+              "RelativeDocumentMoniker": "FTPClient\\dto\\responses\\FolderMoveResponse.cs",
+              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\dto\\responses\\FolderMoveResponse.cs",
+              "RelativeToolTip": "FTPClient\\dto\\responses\\FolderMoveResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T06:58:57.251Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\Program.cs",
-              "RelativeDocumentMoniker": "FTPClient\\Program.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\Program.cs",
-              "RelativeToolTip": "FTPClient\\Program.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBgAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T07:20:50.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "LoginControl.cs [Design]",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\LoginControl.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\user_controls\\LoginControl.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\LoginControl.cs [Design]",
-              "RelativeToolTip": "FTPClient\\ui\\user_controls\\LoginControl.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T06:51:00.158Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LoginControl.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\LoginControl.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\user_controls\\LoginControl.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\LoginControl.cs",
-              "RelativeToolTip": "FTPClient\\ui\\user_controls\\LoginControl.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAqwDoAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T06:51:03.022Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\MainForm.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\form\\MainForm.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\MainForm.cs [Design]",
-              "RelativeToolTip": "FTPClient\\ui\\form\\MainForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T07:41:52.057Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\MainForm.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\form\\MainForm.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\form\\MainForm.cs",
-              "RelativeToolTip": "FTPClient\\ui\\form\\MainForm.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAiwBIAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T07:22:38.628Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MySession.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\MySession.cs",
-              "RelativeDocumentMoniker": "FTPClient\\MySession.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\MySession.cs",
-              "RelativeToolTip": "FTPClient\\MySession.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T07:26:05.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "DashboardControl.Designer.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.Designer.cs",
-              "RelativeDocumentMoniker": "FTPClient\\ui\\user_controls\\DashboardControl.Designer.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.Designer.cs",
-              "RelativeToolTip": "FTPClient\\ui\\user_controls\\DashboardControl.Designer.cs",
-              "ViewState": "AgIAAAABAAAAAAAAAAAiwAABAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T06:57:01.257Z",
+              "WhenOpened": "2025-04-18T10:44:37.529Z",
               "EditorCaption": ""
             }
           ]

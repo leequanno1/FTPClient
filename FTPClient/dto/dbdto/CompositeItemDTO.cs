@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dto.dbdto
 {
-    internal class CompositeItemDTO
+    public class CompositeItemDTO
     {
         private string _itemId;
         private string _itemPath;

@@ -36,6 +36,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.createFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.uploadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,7 @@
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.imgListIcons = new System.Windows.Forms.ImageList(this.components);
-            this.getAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +99,8 @@
             this.toolStripDropDownButton1,
             this.toolStripLabel1,
             this.toolStripButton2,
-            this.toolStripLabel2});
+            this.toolStripLabel2,
+            this.toolStripButton6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
@@ -123,9 +125,16 @@
             // 
             this.createFolderToolStripMenuItem.Image = global::FTPClient.Properties.Resources.folder_3_512;
             this.createFolderToolStripMenuItem.Name = "createFolderToolStripMenuItem";
-            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createFolderToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.createFolderToolStripMenuItem.Text = "Create folder";
             this.createFolderToolStripMenuItem.Click += new System.EventHandler(this.createFolderToolStripMenuItem_Click);
+            // 
+            // getAllToolStripMenuItem
+            // 
+            this.getAllToolStripMenuItem.Name = "getAllToolStripMenuItem";
+            this.getAllToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.getAllToolStripMenuItem.Text = "Get All";
+            this.getAllToolStripMenuItem.Click += new System.EventHandler(this.getAllToolStripMenuItem_Click);
             // 
             // toolStripLabel1
             // 
@@ -256,12 +265,15 @@
             this.imgListIcons.Images.SetKeyName(0, "folder-7-512.png");
             this.imgListIcons.Images.SetKeyName(1, "file-4-512.png");
             // 
-            // getAllToolStripMenuItem
+            // toolStripButton6
             // 
-            this.getAllToolStripMenuItem.Name = "getAllToolStripMenuItem";
-            this.getAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.getAllToolStripMenuItem.Text = "Get All";
-            this.getAllToolStripMenuItem.Click += new System.EventHandler(this.getAllToolStripMenuItem_Click);
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // DashboardControl
             // 
@@ -308,5 +320,6 @@
         private System.Windows.Forms.ImageList imgListIcons;
         private System.Windows.Forms.ToolStripMenuItem createFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton6;
     }
 }

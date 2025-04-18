@@ -195,29 +195,47 @@ namespace FTPClient.ui.user_controls
                 MessageBox.Show("response.Folders is " + (response.Folders == null ? "null" : "not null"));
 
 
-                //MessageBox.Show("Folder: " + folders.Count + "Files: " + files.Count);
+                MessageBox.Show("Folder: " + folders.Count + "Files: " + files.Count);
 
-                //StringBuilder sb = new StringBuilder();
-                //sb.AppendLine("📁 Folders:");
-                //foreach (var folder in folders)
-                //{
-                //    sb.AppendLine(" - " + folder.ItemName);
-                //}
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine("📁 Folders:");
+                foreach (var folder in folders)
+                {
+                    sb.AppendLine(" - " + folder.ItemName);
+                }
 
-                //sb.AppendLine();
-                //sb.AppendLine("📄 Files:");
-                //foreach (var file in files)
-                //{
-                //    sb.AppendLine(" - " + file.ItemName);
-                //}
+                sb.AppendLine();
+                sb.AppendLine("📄 Files:");
+                foreach (var file in files)
+                {
+                    sb.AppendLine(" - " + file.ItemName);
+                }
 
-                //MessageBox.Show(sb.ToString(), "Danh sách thư mục và tập tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(sb.ToString(), "Danh sách thư mục và tập tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("Không thể lấy danh sách thư mục.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            FolderUpdateRequest request = new FolderUpdateRequest();
+            request.FolderPath = "root/Folder 1";
+            request.FolderName = "Folder name3";
+
+            FolderUpdateResponse response = Controller.UpdateFolder(Client.ClientSocket, request);
+            if (response != null)
+            {
+                MessageBox.Show("Status: " + response.Status + "Message: " + response.Message);
+            }
+            else
+            {
+                MessageBox.Show("Response is null");
+            }
+        }
+
 
     }
 }

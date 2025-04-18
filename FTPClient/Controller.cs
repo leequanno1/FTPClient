@@ -17,6 +17,9 @@ namespace FTPClient
     {
         public static bool AddFile(Socket socket, FileAddRequest request, string realiticFilePath, Func<int, int> statusHandler = null)
         {
+            // kết nối file server
+            Client.ConnectFileSocket(ServerEndpoint.FileServer);
+            request.IpEndPoint = Client.FileSocket.LocalEndPoint.ToString();
             // gửi request
             TcpProtocol.Send<GlobalRequest>(socket, new GlobalRequest()
             {
@@ -25,8 +28,6 @@ namespace FTPClient
                 RequestObject = request
             }
             );
-            // kết nối file server
-            Client.ConnectFileSocket(ServerEndpoint.FileServer);
             // nhận response
             GlobalResponse glResponse;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out glResponse))

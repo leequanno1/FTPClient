@@ -221,18 +221,23 @@ namespace FTPClient.ui.user_controls
 
         private void toolStripButton6_Click(object sender, EventArgs e)
         {
-            FolderUpdateRequest request = new FolderUpdateRequest();
-            request.FolderPath = "root/Folder 1";
-            request.FolderName = "Folder name3";
+            //Client.Connect(ServerEndpoint.FileServer);
 
-            FolderUpdateResponse response = Controller.UpdateFolder(Client.ClientSocket, request);
-            if (response != null)
+            FileAddRequest request = new FileAddRequest();
+            request.FileName = "FileSystem.sql";
+            request.FolderPath = "root";
+            request.Size = 1024;
+            request.IpEndPoint = ServerEndpoint.FileServer.ToString();
+            Client.AuthenToken = MySession.MyToken;
+
+            bool response = Controller.AddFile(Client.ClientSocket, request, "C:\\Users\\Liliana\\Downloads\\FileSystem.sql");
+            if (response)
             {
-                MessageBox.Show("Status: " + response.Status + "Message: " + response.Message);
+                MessageBox.Show("Success");
             }
             else
             {
-                MessageBox.Show("Response is null");
+                MessageBox.Show("Failed");
             }
         }
 

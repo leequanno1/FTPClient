@@ -14,10 +14,15 @@ namespace lib
     public class Client
     {
         private static Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
         private static Socket fileSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
         private static string authenToken = String.Empty;
+
         public static Socket ClientSocket { get => clientSocket;}
-        public static Socket FileSocket { get => fileSocket;}
+
+        public static Socket FileSocket { get => fileSocket; set => fileSocket = value; }
+
         public static string AuthenToken { get => authenToken; set => authenToken = value; }
 
         public static void Connect(IPEndPoint serverEndpoint)

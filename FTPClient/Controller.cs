@@ -43,10 +43,13 @@ namespace FTPClient
                         Console.WriteLine(Client.FileSocket.RemoteEndPoint.ToString());
                         Console.WriteLine(Client.FileSocket.LocalEndPoint.ToString());
                         FileTransferHelper.SendFileTo(Client.FileSocket, realiticFilePath, statusHandler);
-                        while (Controller.IsSocketConnected(Client.FileSocket)) {
+                        while (Controller.IsSocketConnected(Client.FileSocket))
+                        {
                             Console.WriteLine("ádasd");
-                            Thread.Sleep(100); 
+                            Thread.Sleep(100);
                         }
+                        Client.FileSocket.Close();
+                        Client.FileSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     }
                     catch (Exception)
                     {
@@ -84,6 +87,9 @@ namespace FTPClient
                         Console.WriteLine(socket.LocalEndPoint.ToString());
                         FileTransferHelper.ReceiveFileFrom(Client.FileSocket, realicticSaveFolderPath, fileName, statusHandler);
                         Client.FileSocket.Shutdown(SocketShutdown.Both);
+
+                        Client.FileSocket.Close();
+                        Client.FileSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     }
                     catch (Exception)
                     {
@@ -148,6 +154,18 @@ namespace FTPClient
 
         public static FileCopyResponse CopyFile(Socket socket, FileCopyRequest request)
         {
+            TcpProtocol.Send<GlobalRequest>(socket, new GlobalRequest()
+            {
+                Route = "/file-copy",
+                AuthentToken = Client.AuthenToken,
+                RequestObject = request
+            }
+            );
+            GlobalResponse response;
+            if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
+            {
+                return ConverTo<FileCopyResponse>(response.RequestObject);
+            }
             return null;
         }
 
@@ -219,8 +237,20 @@ namespace FTPClient
             return null;
         }
 
-        public static FolderCopyResponse CopyFolder(Socket socket, FileCopyRequest request)
+        public static FolderCopyResponse CopyFolder(Socket socket, FolderCopyRequest request)
         {
+            TcpProtocol.Send<GlobalRequest>(socket, new GlobalRequest()
+            {
+                Route = "/folder-copy",
+                AuthentToken = Client.AuthenToken,
+                RequestObject = request
+            }
+            );
+            GlobalResponse response;
+            if (TcpProtocol.Receive<GlobalResponse>(socket, out response))
+            {
+                return ConverTo<FolderCopyResponse>(response.RequestObject);
+            }
             return null;
         }
 

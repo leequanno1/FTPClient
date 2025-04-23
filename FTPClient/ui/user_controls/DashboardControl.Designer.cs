@@ -46,25 +46,36 @@
             this.toolStripButtonRight = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.txtCurrentPath = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.btnGoToPath = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSearchItem = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.imgListIcons = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuListView = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createFolderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uploadFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.downloadFileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.treeViewFolder = new System.Windows.Forms.TreeView();
             this.listViewFolderFileTree = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
+            this.statusStripCountItems = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelFollderCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelFileCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.contextMenuListView.SuspendLayout();
+            this.statusStripCountItems.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -178,9 +189,9 @@
             this.toolStripButtonRight,
             this.toolStripSeparator1,
             this.txtCurrentPath,
-            this.toolStripButton4,
+            this.btnGoToPath,
             this.toolStripSeparator2,
-            this.toolStripTextBox2,
+            this.toolStripSearchItem,
             this.toolStripButton5});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
@@ -196,7 +207,7 @@
             this.toolStripButtonLeft.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
             this.toolStripButtonLeft.Name = "toolStripButtonLeft";
             this.toolStripButtonLeft.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonLeft.Text = "toolStripButton1";
+            this.toolStripButtonLeft.Text = "Back";
             this.toolStripButtonLeft.Click += new System.EventHandler(this.toolStripButtonLeft_Click);
             // 
             // toolStripButtonRight
@@ -207,7 +218,7 @@
             this.toolStripButtonRight.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
             this.toolStripButtonRight.Name = "toolStripButtonRight";
             this.toolStripButtonRight.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonRight.Text = "toolStripButton3";
+            this.toolStripButtonRight.Text = "Next";
             this.toolStripButtonRight.Click += new System.EventHandler(this.toolStripButtonRight_Click);
             // 
             // toolStripSeparator1
@@ -225,27 +236,28 @@
             this.txtCurrentPath.Text = "root";
             this.txtCurrentPath.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCurrentPath_KeyDown);
             // 
-            // toolStripButton4
+            // btnGoToPath
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = global::FTPClient.Properties.Resources.icons8_refresh_96;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.btnGoToPath.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnGoToPath.Image = global::FTPClient.Properties.Resources.icons8_refresh_96;
+            this.btnGoToPath.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGoToPath.Name = "btnGoToPath";
+            this.btnGoToPath.Size = new System.Drawing.Size(23, 22);
+            this.btnGoToPath.Text = "Go to path";
+            this.btnGoToPath.Click += new System.EventHandler(this.btnGoToPath_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripTextBox2
+            // toolStripSearchItem
             // 
-            this.toolStripTextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox2.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(300, 25);
-            this.toolStripTextBox2.Text = "Search here ...";
+            this.toolStripSearchItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripSearchItem.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
+            this.toolStripSearchItem.Name = "toolStripSearchItem";
+            this.toolStripSearchItem.Size = new System.Drawing.Size(300, 25);
+            this.toolStripSearchItem.TextChanged += new System.EventHandler(this.toolStripSearchItem_TextChanged);
             // 
             // toolStripButton5
             // 
@@ -254,7 +266,8 @@
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "toolStripButton5";
+            this.toolStripButton5.Text = "Search item";
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // imgListIcons
             // 
@@ -266,56 +279,92 @@
             // contextMenuListView
             // 
             this.contextMenuListView.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.contextMenuListView.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextMenuListView.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.cutToolStripMenuItem,
+            this.pasteToolStripMenuItem,
+            this.refreshToolStripMenuItem,
             this.createFolderToolStripMenuItem1,
             this.renameToolStripMenuItem,
             this.deleteToolStripMenuItem,
             this.uploadFileToolStripMenuItem1,
-            this.downloadFileToolStripMenuItem1,
-            this.copyToolStripMenuItem});
+            this.downloadFileToolStripMenuItem1});
             this.contextMenuListView.Name = "contextMenuListView";
-            this.contextMenuListView.Size = new System.Drawing.Size(148, 136);
+            this.contextMenuListView.Size = new System.Drawing.Size(157, 202);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Image = global::FTPClient.Properties.Resources.icons8_copy_48;
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Image = global::FTPClient.Properties.Resources.icons8_cut_48;
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Image = global::FTPClient.Properties.Resources.icons8_paste_48;
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Image = global::FTPClient.Properties.Resources.icons8_refresh_961;
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // createFolderToolStripMenuItem1
             // 
+            this.createFolderToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createFolderToolStripMenuItem1.Image = global::FTPClient.Properties.Resources.icons8_folder_2561;
             this.createFolderToolStripMenuItem1.Name = "createFolderToolStripMenuItem1";
-            this.createFolderToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
+            this.createFolderToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.createFolderToolStripMenuItem1.Text = "Create Folder";
             this.createFolderToolStripMenuItem1.Click += new System.EventHandler(this.createFolderToolStripMenuItem1_Click);
             // 
             // renameToolStripMenuItem
             // 
+            this.renameToolStripMenuItem.Image = global::FTPClient.Properties.Resources.icons8_edit_5001;
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
+            this.deleteToolStripMenuItem.Image = global::FTPClient.Properties.Resources.icons8_delete_96;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // uploadFileToolStripMenuItem1
             // 
+            this.uploadFileToolStripMenuItem1.Image = global::FTPClient.Properties.Resources.icons8_upload_641;
             this.uploadFileToolStripMenuItem1.Name = "uploadFileToolStripMenuItem1";
-            this.uploadFileToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
+            this.uploadFileToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.uploadFileToolStripMenuItem1.Text = "Upload file";
             this.uploadFileToolStripMenuItem1.Click += new System.EventHandler(this.uploadFileToolStripMenuItem1_Click);
             // 
             // downloadFileToolStripMenuItem1
             // 
+            this.downloadFileToolStripMenuItem1.Image = global::FTPClient.Properties.Resources.icons8_download_96;
             this.downloadFileToolStripMenuItem1.Name = "downloadFileToolStripMenuItem1";
-            this.downloadFileToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
+            this.downloadFileToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.downloadFileToolStripMenuItem1.Text = "Download file";
             this.downloadFileToolStripMenuItem1.Click += new System.EventHandler(this.downloadFileToolStripMenuItem1_Click);
-            // 
-            // copyToolStripMenuItem
-            // 
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.copyToolStripMenuItem.Text = "Copy";
             // 
             // panel3
             // 
@@ -334,6 +383,7 @@
             this.treeViewFolder.Name = "treeViewFolder";
             this.treeViewFolder.Size = new System.Drawing.Size(293, 528);
             this.treeViewFolder.TabIndex = 10;
+            this.treeViewFolder.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeViewFolder_BeforeExpand);
             this.treeViewFolder.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewFolder_AfterSelect);
             // 
             // listViewFolderFileTree
@@ -359,11 +409,76 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Tree folder";
             // 
+            // statusStripCountItems
+            // 
+            this.statusStripCountItems.AutoSize = false;
+            this.statusStripCountItems.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStripCountItems.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelFollderCount,
+            this.toolStripStatusLabelFileCount,
+            this.toolStripStatusLabel1,
+            this.toolStripSplitButton1});
+            this.statusStripCountItems.Location = new System.Drawing.Point(0, 642);
+            this.statusStripCountItems.Name = "statusStripCountItems";
+            this.statusStripCountItems.Size = new System.Drawing.Size(1147, 30);
+            this.statusStripCountItems.TabIndex = 15;
+            this.statusStripCountItems.Text = "Status Items";
+            // 
+            // toolStripStatusLabelFollderCount
+            // 
+            this.toolStripStatusLabelFollderCount.Name = "toolStripStatusLabelFollderCount";
+            this.toolStripStatusLabelFollderCount.Size = new System.Drawing.Size(66, 17);
+            this.toolStripStatusLabelFollderCount.Text = "Folder: 10";
+            // 
+            // toolStripStatusLabelFileCount
+            // 
+            this.toolStripStatusLabelFileCount.Margin = new System.Windows.Forms.Padding(30, 3, 0, 2);
+            this.toolStripStatusLabelFileCount.Name = "toolStripStatusLabelFileCount";
+            this.toolStripStatusLabelFileCount.Size = new System.Drawing.Size(34, 17);
+            this.toolStripStatusLabelFileCount.Text = "File: ";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(941, 25);
+            this.toolStripStatusLabel1.Spring = true;
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.AutoSize = false;
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logoutToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.toolStripSplitButton1.Image = global::FTPClient.Properties.Resources.icons8_setting_48;
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(30, 28);
+            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Image = global::FTPClient.Properties.Resources.icons8_logout_96;
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Image = global::FTPClient.Properties.Resources.icons8_off_67;
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // DashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.statusStripCountItems);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.listViewFolderFileTree);
             this.Controls.Add(this.treeViewFolder);
@@ -372,13 +487,15 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "DashboardControl";
-            this.Size = new System.Drawing.Size(1147, 647);
+            this.Size = new System.Drawing.Size(1147, 672);
             this.Load += new System.EventHandler(this.DashboardControl_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.contextMenuListView.ResumeLayout(false);
+            this.statusStripCountItems.ResumeLayout(false);
+            this.statusStripCountItems.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,9 +508,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonRight;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox txtCurrentPath;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton btnGoToPath;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripTextBox toolStripSearchItem;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
@@ -417,5 +534,15 @@
         private System.Windows.Forms.ListView listViewFolderFileTree;
         private System.Windows.Forms.TreeView treeViewFolder;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStripCountItems;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelFollderCount;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelFileCount;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripSplitButton1;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

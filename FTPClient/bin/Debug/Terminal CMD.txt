@@ -1,0 +1,2 @@
+cls
+start cmd && exit

@@ -44,6 +44,16 @@ namespace FTPClient.ui.form
             }
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                btnOk.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             object response = null;

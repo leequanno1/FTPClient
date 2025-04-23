@@ -40,6 +40,16 @@ namespace FTPClient.ui.form
             });
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                btnOk.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(selectedFilePath) || !System.IO.File.Exists(selectedFilePath))
@@ -59,6 +69,10 @@ namespace FTPClient.ui.form
                 Size = 1024
             };
             Client.AuthenToken = MySession.MyToken;
+
+            //MessageBox.Show("File name: " + fileName + "\n Folder path: " + currentPath
+            //    + "\n Selected file path: " + selectedFilePath);
+            //return;
 
             bool result = Controller.AddFile(Client.ClientSocket, request, selectedFilePath);
             if (result)

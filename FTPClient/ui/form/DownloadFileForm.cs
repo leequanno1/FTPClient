@@ -15,9 +15,9 @@ namespace FTPClient.ui.form
 {
     public partial class DownloadFileForm : Form
     {
-        public Action OnDownloadedFile;
-
         private string itemPath;
+
+        private string selectedSavePath = "";
 
         public DownloadFileForm(string itemPath)
         {
@@ -38,7 +38,28 @@ namespace FTPClient.ui.form
 
         private void btnChooseFile_Click(object sender, EventArgs e)
         {
+            using (var dialog = new FolderBrowserDialog())
+            {
+                dialog.Description = "Select a folder to save the downloaded file";
+                dialog.ShowNewFolderButton = true;
 
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtItemName.Text = dialog.SelectedPath; 
+                    txtItemName.ForeColor = Color.FromArgb(70, 64, 64);
+                    
+                }
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                btnOk.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -48,11 +69,11 @@ namespace FTPClient.ui.form
                 ClientEndpoint = ServerEndpoint.FileServer.ToString(),
             };
 
-            bool result = Controller.DownloadFile(Client.ClientSocket, fileDownloadRequest, "C:\\Users\\Liliana\\Downloads\\");
+            selectedSavePath = txtItemName.Text;
+            bool result = Controller.DownloadFile(Client.ClientSocket, fileDownloadRequest, selectedSavePath);
 
             if (result)
             {
-                this.OnDownloadedFile?.Invoke();
                 DialogHelper.ShowSuccess("Download file successfully!", () => Close());
             }
             else

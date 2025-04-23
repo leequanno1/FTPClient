@@ -68,3 +68,7 @@ D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.exe
 D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.pdb
 D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\obj\Debug\FTPClient.ui.form.CreateNerFolderForm.resources
 D:\GitHub\FTPServer\FTPClient\FTPClient\obj\Debug\FTPClient.ui.form.CreateNerFolderForm.resources
+D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\obj\Debug\FTPClient.ui.form.RenameItemForm.resources
+D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\obj\Debug\FTPClient.ui.form.DeleteItemForm.resources
+D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\obj\Debug\FTPClient.ui.form.UploadItemForm.resources
+D:\University\Year 4\Semester 2\Network Programming\Project\FTPClient\FTPClient\obj\Debug\FTPClient.ui.form.DownloadFileForm.resources

@@ -1,19 +1,16 @@
 ﻿using FTPClient.ui.form;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FTPClient.ui.form;
 using dto.requests;
 using lib;
 using dto.responses;
 using dto.dbdto;
+using dto;
+using FTPClient.utils;
+using System.Threading.Tasks;
 
 namespace FTPClient.ui.user_controls
 {
@@ -21,158 +18,44 @@ namespace FTPClient.ui.user_controls
     {
         MainForm mainForm;
 
+        private Stack<string> backStack = new Stack<string>();
+
+        private Stack<string> forwardStack = new Stack<string>();
+
+        private string currentPath = CompositeConstance.ROOT_FOLDER_NAME;
+
         public DashboardControl(MainForm parent)
         {
             InitializeComponent();
-            this.mainForm = parent;
+            mainForm = parent;
+
+            // Config TreeView
             treeViewFolder.ImageList = imgListIcons;
-            listView1.View = View.Details;
 
-            // Tạo cột để hiển thị thông tin
-            listView1.Columns.Add("Tên", 200);
-            listView1.Columns.Add("Loại", 100);
-            listView1.Columns.Add("Kích thước", 150);
-            // Gán ImageList vào ListView
-            listView1.SmallImageList = imgListIcons;
+            // Config ListView
+            listViewFolderFileTree.View = View.Details;
 
-            LoadRootDirectory("D:\\");
+            listViewFolderFileTree.Columns.Add("Name", 250);
+            listViewFolderFileTree.Columns.Add("Type", 150);
+            listViewFolderFileTree.Columns.Add("Date Modify", 150);
+
+            listViewFolderFileTree.SmallImageList = imgListIcons;
+            listViewFolderFileTree.ContextMenuStrip = contextMenuListView;
+            contextMenuListView.ShowImageMargin = false;
+
+            LoadRootDirectory();
+            LoadDirectory("root");
         }
 
-        private void LoadRootDirectory(string path)
+        private void DashboardControl_Load(object sender, EventArgs e) { }
+
+        // Method to load root directory
+        private void LoadRootDirectory()
         {
-            TreeNode root = new TreeNode(path);
-            root.Tag = path;
-            root.ImageIndex = 0; // folder icon
-            root.SelectedImageIndex = 0;
-            root.Nodes.Add("Loading..."); // Placeholder
-            treeViewFolder.Nodes.Add(root);
-        }
-
-
-        private void DashboardControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void treeViewFolder_BeforeExpand(object sender, TreeViewCancelEventArgs e)
-        {
-            TreeNode node = e.Node;
-            if (node.Nodes[0].Text == "Loading...")
+            ListRequest request = new ListRequest
             {
-                node.Nodes.Clear(); // Xóa placeholder
-                LoadSubDirectories(node);
-            }
-        }
-
-        private void LoadSubDirectories(TreeNode parentNode)
-        {
-            string path = parentNode.Tag.ToString();
-            try
-            {
-                string[] dirs = Directory.GetDirectories(path);
-                foreach (string dir in dirs)
-                {
-                    TreeNode node = new TreeNode(Path.GetFileName(dir));
-                    node.Tag = dir;
-                    node.ImageIndex = 0; // Folder icon
-                    node.SelectedImageIndex = 0;
-                    node.Nodes.Add("Loading...");
-                    parentNode.Nodes.Add(node);
-                }
-
-                string[] files = Directory.GetFiles(path);
-                foreach (string file in files)
-                {
-                    TreeNode fileNode = new TreeNode(Path.GetFileName(file));
-                    fileNode.Tag = file;
-                    fileNode.ImageIndex = 1; // File icon
-                    fileNode.SelectedImageIndex = 1;
-                    parentNode.Nodes.Add(fileNode);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Lỗi: {ex.Message}");
-            }
-        }
-
-
-        private void treeViewFolder_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            string selectedPath = e.Node.Tag.ToString();
-            LoadFilesAndDirectories(selectedPath);
-        }
-
-        private void LoadFilesAndDirectories(string path)
-        {
-            listView1.Items.Clear();  // Xóa các mục cũ
-
-            try
-            {
-                // Load thư mục con
-                string[] dirs = Directory.GetDirectories(path);
-                foreach (string dir in dirs)
-                {
-                    ListViewItem item = new ListViewItem(Path.GetFileName(dir));
-                    item.SubItems.Add("Thư mục");
-                    item.SubItems.Add("");  // Kích thước thư mục (có thể bỏ qua)
-                    item.ImageIndex = 0;  // Icon thư mục
-                    item.Tag = dir; // Lưu đường dẫn của thư mục vào Tag
-                    listView1.Items.Add(item);
-                }
-
-                // Load file
-                string[] files = Directory.GetFiles(path);
-                foreach (string file in files)
-                {
-                    ListViewItem item = new ListViewItem(Path.GetFileName(file));
-                    item.SubItems.Add("File");
-                    item.SubItems.Add(new FileInfo(file).Length.ToString());  // Kích thước file
-                    item.ImageIndex = 1;  // Icon file
-                    item.Tag = file; // Lưu đường dẫn của file vào Tag
-                    listView1.Items.Add(item);
-                }
-
-                // Cập nhật StatusStrip
-                statusStrip1.Items.Clear();
-                statusStrip1.Items.Add($"Thư mục: {dirs.Length} | File: {files.Length}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
-            }
-        }
-
-
-        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            // Lấy item được chọn
-            ListViewItem selectedItem = listView1.SelectedItems[0];
-
-            // Nếu đó là thư mục, tải thư mục con
-            if (selectedItem.SubItems[1].Text == "Thư mục")
-            {
-                string path = Path.Combine("D:\\", selectedItem.Text); // Hoặc lấy path từ Tag của item
-                LoadFilesAndDirectories(path);  // Tải các thư mục và file trong thư mục con
-            }
-        }
-
-        private void createFolderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CreateNerFolderForm form = new CreateNerFolderForm();
-            form.ShowDialog();
-
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-            //    string newFolderName = form.FolderName;
-            //    MessageBox.Show("Folder name is: " + newFolderName);
-            //}
-        }
-
-        private void getAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ListRequest request = new ListRequest();
-            request.FolderPath = "root";
+                FolderPath = CompositeConstance.ROOT_FOLDER_NAME
+            };
             Client.AuthenToken = MySession.MyToken;
 
             ListResponse response = Controller.ListDirectory(Client.ClientSocket, request);
@@ -181,66 +64,369 @@ namespace FTPClient.ui.user_controls
                 List<CompositeItemDTO> folders = response.Folders;
                 List<CompositeItemDTO> files = response.Files;
 
-                //if (folders != null)
-                //{
-                //    MessageBox.Show("Folder: " + folders.Count);
-                //}
+                treeViewFolder.Nodes.Clear();
+                TreeNode rootNode = new TreeNode("root") { Tag = "root" };
+                treeViewFolder.Nodes.Add(rootNode);
 
-                //if (folders == null)
-                //{
-                //    MessageBox.Show("Folder is null");
-                //}
-
-                MessageBox.Show("response is " + (response == null ? "null" : "not null"));
-                MessageBox.Show("response.Folders is " + (response.Folders == null ? "null" : "not null"));
-
-
-                MessageBox.Show("Folder: " + folders.Count + "Files: " + files.Count);
-
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("📁 Folders:");
-                foreach (var folder in folders)
+                foreach (CompositeItemDTO folder in folders)
                 {
-                    sb.AppendLine(" - " + folder.ItemName);
+                    TreeNode folderNode = new TreeNode(folder.ItemName) { Tag = folder.ItemPath };
+                    setImageForItem(folderNode, folder);
+                    rootNode.Nodes.Add(folderNode);
                 }
 
-                sb.AppendLine();
-                sb.AppendLine("📄 Files:");
-                foreach (var file in files)
+                foreach (CompositeItemDTO file in files)
                 {
-                    sb.AppendLine(" - " + file.ItemName);
+                    TreeNode fileNode = new TreeNode(file.ItemName) { Tag = file.ItemPath };
+                    setImageForItem(fileNode, file);
+                    rootNode.Nodes.Add(fileNode);
                 }
 
-                MessageBox.Show(sb.ToString(), "Danh sách thư mục và tập tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                treeViewFolder.ExpandAll();
             }
             else
             {
-                MessageBox.Show("Không thể lấy danh sách thư mục.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Could not load directory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void toolStripButton6_Click(object sender, EventArgs e)
+        // Method to set image for folder and item.
+        private void setImageForItem(TreeNode treeNode, CompositeItemDTO item)
         {
-            //Client.Connect(ServerEndpoint.FileServer);
+            if (item.ItemType == "folder")
+            {
+                treeNode.ImageIndex = 0;
+                treeNode.SelectedImageIndex = 0;
+            }
+            else if (item.ItemType == "file")
+            {
+                treeNode.ImageIndex = 1;
+                treeNode.SelectedImageIndex = 1;
+            }
+        }
 
-            FileAddRequest request = new FileAddRequest();
-            request.FileName = "FileSystem.sql";
-            request.FolderPath = "root";
-            request.Size = 1024;
-            request.IpEndPoint = ServerEndpoint.FileServer.ToString();
+        private void ReloadCurrentDirectory()
+        {
+            TreeNode selected = treeViewFolder.SelectedNode;
+            if (selected != null)
+            {
+                string path = selected.Tag.ToString();
+                LoadDirectory(path);
+            }
+            else
+            {
+                LoadRootDirectory();
+            }
+        }
+
+        // Load directory base on path
+        private void LoadDirectory(string path)
+        {
+            ListRequest request = new ListRequest { FolderPath = path };
             Client.AuthenToken = MySession.MyToken;
 
-            bool response = Controller.AddFile(Client.ClientSocket, request, "C:\\Users\\Liliana\\Downloads\\FileSystem.sql");
-            if (response)
+            ListResponse response = Controller.ListDirectory(Client.ClientSocket, request);
+            if (response != null)
             {
-                MessageBox.Show("Success");
+                listViewFolderFileTree.Items.Clear();
+
+                foreach (CompositeItemDTO item in response.Folders)
+                {
+                    ListViewItem lvi = new ListViewItem(item.ItemName, 0);
+                    lvi.SubItems.Add("Folder");
+                    string dateFormated = DateTimeHelper.ConvertIsoDateToFormatted(item.DateModify.ToString());
+                    lvi.SubItems.Add(dateFormated);
+                    lvi.Tag = item.ItemPath;
+                    listViewFolderFileTree.Items.Add(lvi);
+                }
+
+                foreach (CompositeItemDTO item in response.Files)
+                {
+                    ListViewItem lvi = new ListViewItem(item.ItemName, 1);
+                    lvi.SubItems.Add("File");
+                    string dateFormated = DateTimeHelper.ConvertIsoDateToFormatted(item.DateModify.ToString());
+                    lvi.SubItems.Add(dateFormated);
+                    lvi.Tag = item.ItemPath;
+                    listViewFolderFileTree.Items.Add(lvi);
+                }
             }
-            else
+        }
+
+        // Handle when user click to tree node
+        private void treeViewFolder_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            string selectedPath = e.Node.Tag?.ToString();
+            if (!string.IsNullOrEmpty(selectedPath))
             {
-                MessageBox.Show("Failed");
+                NavigateTo(selectedPath);
+            }
+        }
+
+        // Method to navigate to path
+        private void NavigateTo(string path, bool addToHistory = true)
+        {
+            if (addToHistory)
+            {
+                backStack.Push(currentPath);
+                forwardStack.Clear();
+            }
+
+
+            // Load to listview
+            currentPath = path;
+            LoadDirectory(currentPath);
+
+            // Update textbox path
+            txtCurrentPath.Text = currentPath;
+        }
+
+        // Handle when user click to back
+        private void toolStripButtonLeft_Click(object sender, EventArgs e)
+        {
+            if (backStack.Count > 0)
+            {
+                forwardStack.Push(currentPath);
+                string previousPath = backStack.Pop();
+                NavigateTo(previousPath, addToHistory: false);
             }
         }
 
 
+        // Handle when user click to next
+        private void toolStripButtonRight_Click(object sender, EventArgs e)
+        {
+            if (forwardStack.Count > 0)
+            {
+                backStack.Push(currentPath);
+                string nextPath = forwardStack.Pop();
+                NavigateTo(nextPath, addToHistory: false);
+            }
+        }
+
+        // Update textbox path
+        private void txtCurrentPath_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string inputPath = txtCurrentPath.Text.Trim();
+                if (!string.IsNullOrEmpty(inputPath))
+                {
+                    NavigateTo(inputPath);
+                    SelectNodeInTreeView(inputPath);
+                }
+            }
+        }
+
+        // Method to select node in tree view
+        private void SelectNodeInTreeView(string path)
+        {
+            foreach (TreeNode node in treeViewFolder.Nodes)
+            {
+                TreeNode found = FindNodeByPath(node, path);
+                if (found != null)
+                {
+                    treeViewFolder.SelectedNode = found;
+                    found.EnsureVisible();
+                    break;
+                }
+            }
+        }
+
+        // Method to find node by path
+        private TreeNode FindNodeByPath(TreeNode node, string targetPath)
+        {
+            if (node.Tag != null && node.Tag.ToString() == targetPath)
+            {
+                return node;
+            }
+
+            foreach (TreeNode child in node.Nodes)
+            {
+                TreeNode found = FindNodeByPath(child, targetPath);
+                if (found != null)
+                    return found;
+            }
+
+            return null;
+        }
+
+        // Hanle when user double click to item on list view
+        private void listViewFolderFileTree_DoubleClick(object sender, EventArgs e)
+        {
+            if (listViewFolderFileTree.SelectedItems.Count > 0)
+            {
+                var item = listViewFolderFileTree.SelectedItems[0];
+                string path = item.Tag?.ToString();
+                if (path != null && item.SubItems[1].Text == "Folder")
+                {
+                    NavigateTo(path);
+                    SelectNodeInTreeView(path);
+                }
+            }
+        }
+
+        // ========================= Context Menu =========================
+        // Handle when user click to the create new folder.
+        private void createFolderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string selectedPath = currentPath; 
+
+            // If have item is selected
+            if (listViewFolderFileTree.SelectedItems.Count > 0)
+            {
+                var selectedItem = listViewFolderFileTree.SelectedItems[0];
+
+                // If item is folder then update selectPath
+                if (selectedItem.SubItems[1].Text == "Folder")
+                {
+                    selectedPath = selectedItem.Tag?.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn thư mục để tạo thư mục con.");
+                    return;
+                }
+            }
+
+            // Open create new folder form
+            CreateNerFolderForm createNerFolderForm = new CreateNerFolderForm(selectedPath);
+            createNerFolderForm.OnFolderCreated = () =>
+            {
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadDirectory(selectedPath);
+                        }));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error loading directory: " + ex.Message);
+                    }
+                });
+            };
+
+            createNerFolderForm.Show();
+        }
+
+
+        // Handle when user want to change name of folder or file.
+        private void renameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listViewFolderFileTree.SelectedItems[0];
+            string selectedPath = selectedItem.Tag?.ToString();
+
+            string itemType = selectedItem.SubItems[1].Text.ToLower();
+            Console.WriteLine("Item type: " + itemType);
+            Console.WriteLine("Item path: " + selectedPath);
+            RenameItemForm renameItemForm = new RenameItemForm(selectedPath, itemType);
+
+            renameItemForm.OnItemChangedName = () =>
+            {
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadDirectory(currentPath);
+                        }));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error loading directory: " + ex.Message);
+                    }
+                });
+            };
+
+            renameItemForm.Show();
+        }
+
+        // Handle when user want to delete folder or file.
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listViewFolderFileTree.SelectedItems[0];
+            string selectedPath = selectedItem.Tag?.ToString();
+
+            string itemType = selectedItem.SubItems[1].Text.ToLower();
+            Console.WriteLine("Item type: " + itemType);
+            Console.WriteLine("Item path: " + selectedPath);
+            DeleteItemForm deleteItemForm = new DeleteItemForm(selectedPath, itemType);
+
+            deleteItemForm.OnItemDeleted = () =>
+            {
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            LoadDirectory(currentPath);
+                        }));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error loading directory: " + ex.Message);
+                    }
+                });
+            };
+
+            deleteItemForm.Show();
+        }
+
+        // Handle when user click to upload file
+        private void uploadFileToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UploadItemForm uploadItemForm = new UploadItemForm(currentPath);
+            uploadItemForm.OnUploadFile = () =>
+            {
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            Console.WriteLine("Current path: " + currentPath);
+                            LoadDirectory(currentPath);
+                        }));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error loading directory: " + ex.Message);
+                    }
+                });
+            };
+
+            uploadItemForm.Show();
+        }
+
+        // Handle when user click to download file
+        private void downloadFileToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var selectedItem = listViewFolderFileTree.SelectedItems[0];
+            string selectedPath = selectedItem.Tag?.ToString();
+            DownloadFileForm downloadFileForm = new DownloadFileForm(selectedPath);
+            downloadFileForm.OnDownloadedFile = () =>
+            {
+                Task.Run(() =>
+                {
+                    try
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            Console.WriteLine("Current path: " + currentPath);
+                            LoadDirectory(currentPath);
+                        }));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error loading directory: " + ex.Message);
+                    }
+                });
+            };
+            downloadFileForm.Show();
+        }
     }
 }

@@ -107,6 +107,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(256, 27);
             this.txtPassword.TabIndex = 18;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // txtUsername
             // 
@@ -118,6 +119,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(256, 27);
             this.txtUsername.TabIndex = 17;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsername_KeyDown);
             // 
             // panel1
             // 
@@ -187,6 +189,7 @@
             this.txtRepassword.PasswordChar = '*';
             this.txtRepassword.Size = new System.Drawing.Size(256, 27);
             this.txtRepassword.TabIndex = 25;
+            this.txtRepassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRepassword_KeyDown);
             // 
             // pictureBox4
             // 

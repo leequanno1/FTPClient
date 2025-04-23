@@ -18,20 +18,27 @@ namespace FTPClient.ui.form
 {
     public partial class CreateNerFolderForm : Form
     {
+        public Action OnFolderCreated;
+
         public String FolderName => txtFolderName.Text;
 
-        public CreateNerFolderForm()
+        private String currentPath;
+
+        public bool IsFolderCreated { get; private set; } = false;
+
+        public CreateNerFolderForm(string currentPath)
         {
             InitializeComponent();
 
-            this.StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterScreen;
+            this.currentPath = currentPath;
         }
 
         private void CreateNerFolder_Load(object sender, EventArgs e)
         {
             TextBoxHelper.SetHint(this.txtFolderName, "Please enter folder name");
 
-            this.BeginInvoke((MethodInvoker)delegate
+            BeginInvoke((MethodInvoker)delegate
             {
                 label3.Focus();
             });
@@ -39,37 +46,55 @@ namespace FTPClient.ui.form
 
         private void CreateNerFolderForm_Shown(object sender, EventArgs e)
         {
-            this.ActiveControl = null;
+            ActiveControl = null;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            //this.DialogResult = DialogResult.OK;
-
             // Create request
             FolderAddRequest request = new FolderAddRequest();
-            request.ParrentPath = CompositeConstance.ROOT_FOLDER_NAME;
+            request.ParrentPath = currentPath;
             request.FolderName = txtFolderName.Text;
             Client.AuthenToken = MySession.MyToken;
 
             // Call API to send request
             FolderAddResponse reponse = Controller.AddFolder(Client.ClientSocket, request);
 
-            if (reponse != null) {
-                MessageBox.Show("Res: " + reponse.Status + "Message: " + reponse.Message);
+            if (reponse != null)
+            {
+                OnFolderCreated?.Invoke();
+                Close();
             }
             else
             {
-                MessageBox.Show("Co loi");
+                DialogHelper.ShowError("Error when create folder: " + reponse.Message.ToString());
             }
-
-            //this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            Close();
+        }
+
+        // Catch event enter "Enter" on keyborad on login control.
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                btnOk.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void txtFolderName_KeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxHelper.preventLineBreak(e);
+        }
+
+        private void txtFolderName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

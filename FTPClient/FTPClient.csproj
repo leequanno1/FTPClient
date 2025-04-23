@@ -80,19 +80,23 @@
     <Compile Include="Controller.cs" />
     <Compile Include="dto\CompositeConstance.cs" />
     <Compile Include="dto\dbdto\CompositeItemDTO.cs" />
+    <Compile Include="dto\requests\FileCopyRequest.cs" />
     <Compile Include="dto\requests\FileAddRequest.cs" />
     <Compile Include="dto\requests\FileDeleteRequest.cs" />
     <Compile Include="dto\requests\FileDownloadRequest.cs" />
     <Compile Include="dto\requests\FileMoveRequest.cs" />
     <Compile Include="dto\requests\FileUpdateRequest.cs" />
     <Compile Include="dto\requests\FolderAddRequest.cs" />
+    <Compile Include="dto\requests\FolderCopyRequest.cs" />
     <Compile Include="dto\requests\FolderDeleteRequest.cs" />
     <Compile Include="dto\requests\FolderMoveRequest.cs" />
     <Compile Include="dto\requests\FolderUpdateRequest.cs" />
     <Compile Include="dto\requests\ListRequest.cs" />
     <Compile Include="dto\requests\LoginRequest.cs" />
     <Compile Include="dto\requests\SignupRequest.cs" />
+    <Compile Include="dto\responses\FolderCopyResponse.cs" />
     <Compile Include="dto\responses\FileAddResponse.cs" />
+    <Compile Include="dto\responses\FileCopyResponse.cs" />
     <Compile Include="dto\responses\FileDeleteResponse.cs" />
     <Compile Include="dto\responses\FileDowloadResponse.cs" />
     <Compile Include="dto\responses\FileMoveResponse.cs" />
@@ -124,11 +128,35 @@
     <Compile Include="ui\form\CreateNerFolderForm.Designer.cs">
       <DependentUpon>CreateNerFolderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ui\form\DeleteItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\form\DeleteItemForm.Designer.cs">
+      <DependentUpon>DeleteItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\form\DownloadFileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\form\DownloadFileForm.Designer.cs">
+      <DependentUpon>DownloadFileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ui\form\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ui\form\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\form\RenameItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\form\RenameItemForm.Designer.cs">
+      <DependentUpon>RenameItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ui\form\UploadItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\form\UploadItemForm.Designer.cs">
+      <DependentUpon>UploadItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ui\user_controls\DashboardControl.cs">
       <SubType>UserControl</SubType>
@@ -154,7 +182,9 @@
     <Compile Include="ui\user_controls\SignUpControl.Designer.cs">
       <DependentUpon>SignUpControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="utils\DateTimeHelper.cs" />
     <Compile Include="utils\DialogHelper.cs" />
+    <Compile Include="utils\PathHelper.cs" />
     <Compile Include="utils\TextBoxHelper.cs" />
     <Compile Include="utils\ValidateFormHelper.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -170,8 +200,20 @@
     <EmbeddedResource Include="ui\form\CreateNerFolderForm.resx">
       <DependentUpon>CreateNerFolderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\form\DeleteItemForm.resx">
+      <DependentUpon>DeleteItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\form\DownloadFileForm.resx">
+      <DependentUpon>DownloadFileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\form\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\form\RenameItemForm.resx">
+      <DependentUpon>RenameItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\form\UploadItemForm.resx">
+      <DependentUpon>UploadItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\user_controls\DashboardControl.resx">
       <DependentUpon>DashboardControl.cs</DependentUpon>
@@ -199,6 +241,12 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="assets\icons\folder-3-512.ico" />
+    <Content Include="assets\icons\icons8-delete-240.ico" />
+    <Content Include="assets\icons\icons8-download-64.ico" />
+    <Content Include="assets\icons\icons8-edit-property-96.ico" />
+    <Content Include="assets\icons\icons8-folder-250.ico" />
+    <Content Include="assets\icons\icons8-folder-256.ico" />
+    <Content Include="assets\icons\icons8-upload-96.ico" />
     <Content Include="assets\images\arrow-121-512.png" />
     <Content Include="assets\images\arrow-20-512.png" />
     <Content Include="assets\images\blank-file-512.png" />
@@ -207,6 +255,19 @@
     <Content Include="assets\images\file-4-512.png" />
     <Content Include="assets\images\folder-3-512.png" />
     <Content Include="assets\images\folder-7-512.png" />
+    <Content Include="assets\images\icons8-add-file-96.png" />
+    <Content Include="assets\images\icons8-delete-240.png" />
+    <Content Include="assets\images\icons8-delete-256.png" />
+    <Content Include="assets\images\icons8-download-65.png" />
+    <Content Include="assets\images\icons8-edit-500.png" />
+    <Content Include="assets\images\icons8-file-480.png" />
+    <Content Include="assets\images\icons8-find-360.png" />
+    <Content Include="assets\images\icons8-find-480.png" />
+    <Content Include="assets\images\icons8-folder-256.png" />
+    <Content Include="assets\images\icons8-left-96.png" />
+    <Content Include="assets\images\icons8-refresh-96.png" />
+    <Content Include="assets\images\icons8-right-96.png" />
+    <Content Include="assets\images\icons8-upload-64.png" />
     <Content Include="assets\images\private-512.png" />
     <Content Include="assets\images\search-12-512.png" />
     <Content Include="assets\images\sinchronize-512.png" />

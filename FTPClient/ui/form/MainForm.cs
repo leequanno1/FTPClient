@@ -47,16 +47,25 @@ namespace FTPClient.ui.form
         }
 
 
-        public void LoadControl(UserControl control)
+        public void LoadControl(UserControl control, bool isFullScreen = false)
         {
             panelMain.Controls.Clear();
             panelMain.Controls.Add(control);
 
-            control.Location = new Point(
-                (panelMain.Width - control.Width) / 2,
-                (panelMain.Height - control.Height) / 2
-            );
+            if (isFullScreen)
+            {
+                control.Dock = DockStyle.Fill; 
+            }
+            else
+            {
+                control.Dock = DockStyle.None;
+                control.Location = new Point(
+                    (panelMain.Width - control.Width) / 2,
+                    (panelMain.Height - control.Height) / 2
+                );
+            }
         }
+
 
     }
 }

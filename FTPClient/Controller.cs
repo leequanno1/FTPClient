@@ -1,5 +1,7 @@
 ﻿using dto.requests;
 using dto.responses;
+using FTPClient.dto.requests;
+using FTPClient.dto.responses;
 using lib;
 using System;
 using System.Collections.Generic;
@@ -57,6 +59,8 @@ namespace FTPClient
 
         public static bool DownloadFile(Socket socket, FileDownloadRequest request, string realicticSaveFolderPath, Func<long, long> statusHandler = null)
         {
+            Client.ConnectFileSocket(ServerEndpoint.FileServer);
+            request.ClientEndpoint = Client.FileSocket.LocalEndPoint.ToString();
             // gửi request
             TcpProtocol.Send<GlobalRequest>(socket, new GlobalRequest()
             {
@@ -65,8 +69,6 @@ namespace FTPClient
                 RequestObject = request
             }
             );
-            // kết nối file server
-            Client.ConnectFileSocket(ServerEndpoint.FileServer);
             // nhận response
             GlobalResponse glResponse;
             if (TcpProtocol.Receive<GlobalResponse>(socket, out glResponse))
@@ -78,8 +80,10 @@ namespace FTPClient
                     try
                     {
                         string fileName = request.FilePath.Split('/').Last();
-                        FileTransferHelper.ReceiveFileFrom(socket, realicticSaveFolderPath, fileName, statusHandler);
-                        Client.FileSocket.Close();
+                        Console.WriteLine(socket.RemoteEndPoint.ToString());
+                        Console.WriteLine(socket.LocalEndPoint.ToString());
+                        FileTransferHelper.ReceiveFileFrom(Client.FileSocket, realicticSaveFolderPath, fileName, statusHandler);
+                        Client.FileSocket.Shutdown(SocketShutdown.Both);
                     }
                     catch (Exception)
                     {
@@ -89,6 +93,7 @@ namespace FTPClient
             }
             return true;
         }
+
 
         public static FileDeleteResponse DeleteFile(Socket socket, FileDeleteRequest request)
         {
@@ -138,6 +143,11 @@ namespace FTPClient
             {
                 return ConverTo<FileMoveResponse>(response.RequestObject);
             }
+            return null;
+        }
+
+        public static FileCopyResponse CopyFile(Socket socket, FileCopyRequest request)
+        {
             return null;
         }
 
@@ -206,6 +216,11 @@ namespace FTPClient
             {
                 return ConverTo<FolderMoveResponse>(response.RequestObject);
             }
+            return null;
+        }
+
+        public static FolderCopyResponse CopyFolder(Socket socket, FileCopyRequest request)
+        {
             return null;
         }
 

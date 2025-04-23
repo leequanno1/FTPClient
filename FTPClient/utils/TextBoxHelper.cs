@@ -10,6 +10,7 @@ namespace FTPClient.utils
 {
     public class TextBoxHelper
     {
+        // Method to set placeholder for text box
         public static void SetHint(TextBox textBox, string hintText, bool isPassword = false,  Color? hintColor = null)
         {
             Color color = hintColor ?? Color.LightGray;
@@ -42,6 +43,15 @@ namespace FTPClient.utils
                     textBox.PasswordChar = '\0';
                 }
             };
+        }
+
+        // Method to prevent line break
+        public static void preventLineBreak(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; 
+            }
         }
     }
 }

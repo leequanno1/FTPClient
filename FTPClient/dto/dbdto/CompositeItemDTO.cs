@@ -14,6 +14,8 @@ namespace dto.dbdto
         private string _itemName;
         private string _userId;
         private string _itemType;
+        private string _copyFrom;
+        private string _dateModify;
 
         public string ItemId { get => _itemId; set => _itemId = value; }
         public string ItemPath { get => _itemPath; set => _itemPath = value; }
@@ -21,5 +23,8 @@ namespace dto.dbdto
         public string ItemName { get => _itemName; set => _itemName = value; }
         public string UserId { get => _userId; set => _userId = value; }
         public string ItemType { get => _itemType; set => _itemType = value; }
+        public string CopyFrom { get => _copyFrom; set => _copyFrom = value; }
+        public string DateModify { get => _dateModify; set => _dateModify = value; }
+
     }
 }

@@ -68,7 +68,7 @@ namespace FTPClient.ui.user_controls
 
             // Signup succesfully.
             clearForm();
-            DialogHelper.ShowSuccess(ResponseStatus.SUCCESS_MESSAGE, () =>
+            DialogHelper.ShowSuccess("Signup account successfully!", () =>
             {
                 this.mainForm.LoadControl(new LoginControl(mainForm));
             });
@@ -97,5 +97,30 @@ namespace FTPClient.ui.user_controls
             TextBoxHelper.SetHint(this.txtRepassword, "Please enter re-password", true);
         }
 
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxHelper.preventLineBreak(e);
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxHelper.preventLineBreak(e);
+        }
+
+        private void txtRepassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxHelper.preventLineBreak(e);
+        }
+
+        // Catch event enter "Enter" on keyborad on signup control.
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                btnSignUp.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }

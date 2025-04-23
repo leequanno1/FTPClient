@@ -118,37 +118,76 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="search-12-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\search-12-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow-20-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\arrow-20-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user-2-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\user-2-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow-121-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\arrow-121-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="private-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\private-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="file-3-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\file-3-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="private-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\private-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-folder-256" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-folder-256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sinchronize-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\sinchronize-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download-2-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\download-2-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="folder-3-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\folder-3-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-edit-500" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-edit-500.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-left-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-left-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search-12-5121" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\search-12-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-upload-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-upload-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blank-file-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\blank-file-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-add-file-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-add-file-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-find-360" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-find-360.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-find-480" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-find-480.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user-2-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\user-2-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-refresh-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-refresh-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-delete-256" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-delete-256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow-20-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\arrow-20-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search-12-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\search-12-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-delete-240" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-delete-240.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-right-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-right-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="download-2-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\download-2-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="upload-3-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\upload-3-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="blank-file-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\blank-file-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrow-121-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\arrow-121-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-download-65" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-download-65.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

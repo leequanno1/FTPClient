@@ -13,6 +13,7 @@ using FTPClient.utils;
 using System.Threading.Tasks;
 using FTPClient.dto.requests;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Security.Cryptography;
 
 namespace FTPClient.ui.user_controls
 {
@@ -28,7 +29,7 @@ namespace FTPClient.ui.user_controls
 
         private string clipboardPath = null;
 
-        private string clipboardType = null; // file or folder
+        private string clipboardType = null;
 
         private bool isCutOperation = false;
 
@@ -45,14 +46,16 @@ namespace FTPClient.ui.user_controls
             LoadRootDirectoryOnTreeView();
 
             // Config ListView
-            LoadListView();
+            LoadRootListView();
         }
 
-        private void DashboardControl_Load(object sender, EventArgs e) { 
+        private void DashboardControl_Load(object sender, EventArgs e)
+        {
 
         }
 
-        private void LoadListView()
+        // Method to load data on List View
+        private void LoadRootListView()
         {
             listViewFolderFileTree.View = View.Details;
 
@@ -79,7 +82,6 @@ namespace FTPClient.ui.user_controls
             if (response != null)
             {
                 List<CompositeItemDTO> folders = response.Folders;
-                List<CompositeItemDTO> files = response.Files;
 
                 treeViewFolder.Nodes.Clear();
                 TreeNode rootNode = new TreeNode("root") { Tag = "root" };
@@ -93,7 +95,39 @@ namespace FTPClient.ui.user_controls
                     rootNode.Nodes.Add(folderNode);
                 }
 
-                treeViewFolder.ExpandAll();
+                rootNode.Expand();
+            }
+            else
+            {
+                MessageBox.Show("Could not load directory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Method to to load directory on tree node
+        private void LoadDirectityOnTreeNode(TreeNode treeNode, string pathToLoad)
+        {
+            ListRequest request = new ListRequest
+            {
+                FolderPath = pathToLoad
+            };
+            Client.AuthenToken = MySession.MyToken;
+
+            ListResponse response = Controller.ListDirectory(Client.ClientSocket, request);
+            if (response != null)
+            {
+                List<CompositeItemDTO> folders = response.Folders;
+
+                treeNode.Nodes.Clear();
+
+                foreach (CompositeItemDTO folder in folders)
+                {
+                    TreeNode folderNode = new TreeNode(folder.ItemName) { Tag = folder.ItemPath };
+                    folderNode.Nodes.Add(new TreeNode());
+                    setImageForItem(folderNode, folder);
+                    treeNode.Nodes.Add(folderNode);
+                }
+
+                treeNode.Expand();
             }
             else
             {
@@ -287,7 +321,7 @@ namespace FTPClient.ui.user_controls
 
             if (listViewFolderFileTree.Items.Count == 0)
             {
-                listViewFolderFileTree.Items.Add(new ListViewItem("Không tìm thấy kết quả nào") { ForeColor = Color.Gray });
+                listViewFolderFileTree.Items.Add(new ListViewItem("No results found") { ForeColor = Color.Gray });
             }
         }
 
@@ -297,7 +331,7 @@ namespace FTPClient.ui.user_controls
             SearchItem();
         }
 
-        private void toolStripButton5_Click(object sender, EventArgs e)
+        private void toolStripButtonSearch_Click(object sender, EventArgs e)
         {
             SearchItem();
         }
@@ -352,23 +386,31 @@ namespace FTPClient.ui.user_controls
 
         // ========================= Context Menu =========================
         // Reload list view and tree view
-        private void ReloadListViewAndTreeView(string pathToReload)
+        private void ReloadListViewAndTreeView(string pathToReload, bool isFolder = true)
         {
             Task.Run(() =>
             {
-                try
+                this.Invoke(new Action(() =>
                 {
-                    this.Invoke(new Action(() =>
+                    //ReloadListViewAndTreeView(selectedPath);
+                    LoadDirectoryOnListView(pathToReload);
+
+                    // Update tree node
+                    if (isFolder)
                     {
-                        LoadDirectoryOnListView(pathToReload);
-                        LoadRootDirectoryOnTreeView();
-                        NavigateTo(pathToReload);
-                    }));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error loading directory: " + ex.Message);
-                }
+                        foreach (TreeNode node in treeViewFolder.Nodes)
+                        {
+                            TreeNode found = FindNodeByPath(node, pathToReload);
+                            if (found != null)
+                            {
+                                treeViewFolder.SelectedNode = found;
+                                found.EnsureVisible();
+                                LoadDirectityOnTreeNode(found, pathToReload);
+                                break;
+                            }
+                        }
+                    }
+                }));
             });
         }
 
@@ -417,11 +459,16 @@ namespace FTPClient.ui.user_controls
             var selectedItem = listViewFolderFileTree.SelectedItems[0];
             string selectedPath = selectedItem.Tag?.ToString();
             string itemType = selectedItem.SubItems[1].Text.ToLower();
+
+            // Get parent path of curent path (to load tree node and list view)
+            string parentPath = PathHelper.GetPathBeforeLastSlash(selectedPath);
+            bool isFolder = itemType.ToLower() == CompositeConstance.FOLDER ? true : false;
+
             RenameItemForm renameItemForm = new RenameItemForm(selectedPath, itemType);
 
             renameItemForm.OnItemChangedName = () =>
             {
-                ReloadListViewAndTreeView(currentPath);
+                ReloadListViewAndTreeView(parentPath, isFolder);
             };
 
             renameItemForm.Show();
@@ -439,11 +486,16 @@ namespace FTPClient.ui.user_controls
             var selectedItem = listViewFolderFileTree.SelectedItems[0];
             string selectedPath = selectedItem.Tag?.ToString();
             string itemType = selectedItem.SubItems[1].Text.ToLower();
+
+            // Get parent path of curent path (to load tree node and list view)
+            string parentPath = PathHelper.GetPathBeforeLastSlash(selectedPath);
+            bool isFolder = itemType.ToLower() == CompositeConstance.FOLDER ? true : false;
+
             DeleteItemForm deleteItemForm = new DeleteItemForm(selectedPath, itemType);
 
             deleteItemForm.OnItemDeleted = () =>
             {
-                ReloadListViewAndTreeView(currentPath);
+                ReloadListViewAndTreeView(parentPath, isFolder);
             };
 
             deleteItemForm.Show();
@@ -473,22 +525,14 @@ namespace FTPClient.ui.user_controls
             UploadItemForm uploadItemForm = new UploadItemForm(selectedPath);
             uploadItemForm.OnUploadFile = () =>
             {
-                //ReloadListViewAndTreeView(selectedPath);
+                //MessageBox.Show("Called upload file");
 
                 Task.Run(() =>
                 {
-                    try
+                    this.Invoke(new Action(() =>
                     {
-                        this.Invoke(new Action(() =>
-                        {
-                            LoadDirectoryOnListView(selectedPath);
-                            NavigateTo(selectedPath);
-                        }));
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine("Error loading directory: " + ex.Message);
-                    }
+                        LoadDirectoryOnListView(selectedPath);
+                    }));
                 });
             };
 
@@ -578,7 +622,7 @@ namespace FTPClient.ui.user_controls
             }
             else
             {
-                MessageBox.Show("Type: " + clipboardType + "\nPath: " + clipboardPath + "\nDes: " + destinationDir);
+                //MessageBox.Show("Type: " + clipboardType + "\nPath: " + clipboardPath + "\nDes: " + destinationDir);
                 //return;
                 if (clipboardType == "file")
                 {
@@ -609,15 +653,15 @@ namespace FTPClient.ui.user_controls
 
                 if (!isError)
                 {
-                    LoadDirectoryOnListView(currentPath);
-                    LoadRootDirectoryOnTreeView();
-                    DialogHelper.ShowSuccess(message);
-                } else
+                    bool isFolder = clipboardType == "folder" ? true : false;
+                    ReloadListViewAndTreeView(currentPath, isFolder);
+                }
+                else
                 {
                     DialogHelper.ShowError("Status: " + (response as dynamic)?.Status + message);
                 }
 
-                clipboardPath = null; 
+                clipboardPath = null;
                 clipboardType = null;
                 isCutOperation = false;
             }
@@ -625,8 +669,7 @@ namespace FTPClient.ui.user_controls
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadDirectoryOnListView(currentPath);
-            LoadRootDirectoryOnTreeView();
+            ReloadListViewAndTreeView(currentPath, isFolder: true);
         }
 
         private void UpdateItemCountStatus()

@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|d:\\university\\year 4\\semester 2\\network programming\\project\\ftpclient\\ftpclient\\ui\\user_controls\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBEED1D9-2C55-4403-8800-48BD9B895C26}|FTPClient\\FTPClient.csproj|solutionrelative:ftpclient\\ui\\user_controls\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\Program.cs",
-              "RelativeDocumentMoniker": "FTPClient\\Program.cs",
-              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\Program.cs",
-              "RelativeToolTip": "FTPClient\\Program.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwA4AAAA1AAAAAAAAAA==",
+              "Title": "DashboardControl.cs",
+              "DocumentMoniker": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "RelativeDocumentMoniker": "FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "ToolTip": "D:\\University\\Year 4\\Semester 2\\Network Programming\\Project\\FTPClient\\FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "RelativeToolTip": "FTPClient\\ui\\user_controls\\DashboardControl.cs",
+              "ViewState": "AgIAAAwCAAAAAAAAAAAAABUCAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-23T17:46:07.988Z",
+              "WhenOpened": "2025-04-27T06:23:36.18Z",
               "EditorCaption": ""
             }
           ]

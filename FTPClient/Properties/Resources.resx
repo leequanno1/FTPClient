@@ -139,9 +139,6 @@
   <data name="icons8-refresh-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\icons8-refresh-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search-12-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\search-12-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8-delete-256" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\icons8-delete-256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,6 +178,9 @@
   <data name="icons8-upload-641" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\icons8-upload-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-add-file-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-add-file-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="arrow-121-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\arrow-121-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -217,13 +217,16 @@
   <data name="icons8-delete-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\icons8-delete-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-add-file-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\images\icons8-add-file-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="search-12-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\search-12-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blank-file-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\blank-file-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-logout-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\icons8-logout-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-setting-481" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\icons8-setting-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

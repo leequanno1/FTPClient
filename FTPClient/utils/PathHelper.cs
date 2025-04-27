@@ -35,6 +35,21 @@ namespace FTPClient.utils
             return fullPath.Substring(lastIndex + 1);
         }
 
+        public static string GetPathBeforeLastSlash(string input)
+        {
+            // Tìm vị trí của dấu '/' cuối cùng
+            int lastSlashIndex = input.LastIndexOf('/');
+
+            // Nếu không có dấu '/' trong chuỗi, trả về chuỗi gốc
+            if (lastSlashIndex == -1)
+            {
+                return input;
+            }
+
+            // Cắt chuỗi từ đầu đến vị trí của dấu '/'
+            return input.Substring(0, lastSlashIndex);
+        }
+
     }
 
 }

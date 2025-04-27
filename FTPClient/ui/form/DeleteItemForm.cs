@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection.Emit;
 
 namespace FTPClient.ui.form
 {
@@ -33,15 +34,21 @@ namespace FTPClient.ui.form
 
         private void DeleteItemForm_Load(object sender, EventArgs e)
         {
+            string itemName = PathHelper.GetLastPartOfPath(this.itemPath);
             if (itemType == "file")
             {
                 this.Text = "Delete File Form";
                 this.label3.Text = "Are you want to delete this file?";
+                this.lbItemInfo.Text = "File name: " + itemName;
             } else
             {
                 this.Text = "Delete Folder Form";
                 this.label3.Text = "Are you want to delete this folder?";
+                this.lbItemInfo.Text = "Folder name: " + itemName;
             }
+
+            lbItemInfo.Anchor = AnchorStyles.None; 
+            lbItemInfo.Left = (this.ClientSize.Width - lbItemInfo.Width) / 2;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)

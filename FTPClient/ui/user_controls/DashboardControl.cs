@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using FTPClient.dto.requests;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Security.Cryptography;
+using System.Collections;
 
 namespace FTPClient.ui.user_controls
 {
@@ -32,6 +33,9 @@ namespace FTPClient.ui.user_controls
         private string clipboardType = null;
 
         private bool isCutOperation = false;
+
+        private int lastSortedColumn = -1;
+        private bool ascendingSort = true;
 
         private List<ListViewItem> originalList = new List<ListViewItem>();
 
@@ -58,6 +62,7 @@ namespace FTPClient.ui.user_controls
         private void LoadRootListView()
         {
             listViewFolderFileTree.View = View.Details;
+            listViewFolderFileTree.ColumnClick += listViewFolderFileTree_ColumnClick;
 
             listViewFolderFileTree.Columns.Add("Name", 250);
             listViewFolderFileTree.Columns.Add("Type", 150);
@@ -68,6 +73,21 @@ namespace FTPClient.ui.user_controls
 
             LoadDirectoryOnListView("root");
         }
+
+        private void listViewFolderFileTree_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (e.Column == lastSortedColumn)
+                ascendingSort = !ascendingSort;
+            else
+            {
+                lastSortedColumn = e.Column;
+                ascendingSort = true;
+            }
+
+            listViewFolderFileTree.ListViewItemSorter = new ListViewItemComparer(e.Column, ascendingSort);
+            listViewFolderFileTree.Sort();
+        }
+
 
         // Method to load root directory
         private void LoadRootDirectoryOnTreeView()
@@ -256,7 +276,7 @@ namespace FTPClient.ui.user_controls
         }
 
 
-        // Handle when user click to next
+        // Handle when user click to forward
         private void toolStripButtonRight_Click(object sender, EventArgs e)
         {
             if (forwardStack.Count > 0)
@@ -701,5 +721,41 @@ namespace FTPClient.ui.user_controls
         {
             Application.Exit();
         }
+    }
+}
+
+class ListViewItemComparer : IComparer
+{
+    private int column;
+    private bool ascending;
+
+    public ListViewItemComparer(int column, bool ascending)
+    {
+        this.column = column;
+        this.ascending = ascending;
+    }
+
+    public int Compare(object x, object y)
+    {
+        ListViewItem item1 = (ListViewItem)x;
+        ListViewItem item2 = (ListViewItem)y;
+
+        string text1 = item1.SubItems[column].Text;
+        string text2 = item2.SubItems[column].Text;
+
+        int result;
+
+        if (column == 2 &&
+            DateTime.TryParse(text1, out DateTime date1) &&
+            DateTime.TryParse(text2, out DateTime date2))
+        {
+            result = DateTime.Compare(date1, date2);
+        }
+        else
+        {
+            result = string.Compare(text1, text2, StringComparison.OrdinalIgnoreCase);
+        }
+
+        return ascending ? result : -result;
     }
 }

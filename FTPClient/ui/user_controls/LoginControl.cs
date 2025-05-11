@@ -61,9 +61,9 @@ namespace FTPClient.ui.user_controls
             // Disable the login button to prevent multiple clicks.
             btnLogin.Enabled = false;
             btnLogin.ForeColor = Color.White;
-            lbErrorMessage.Text = "Logging in...";
-            Application.DoEvents();
-            await Task.Delay(50);
+            //lbErrorMessage.Text = "Logging in...";
+            //Application.DoEvents();
+            //await Task.Delay(50);
 
             try
             {
